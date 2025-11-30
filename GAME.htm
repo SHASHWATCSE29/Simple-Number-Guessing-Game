@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>While Loop Example - Number Guessing Game</title>
+</head>
+<body>
+
+<h2>Number Guessing Game</h2>
+<p>Guess the secret number between 1 and 10.</p>
+<button onclick="startGame()">Start Game</button>
+
+<script>
+function startGame() {
+    // 1. Generate a random secret number between 1 and 10 (inclusive)
+    const secretNumber = Math.ceil(Math.random() * 10);
+    
+    // 2. Initialize the guess variable
+    let guess = 0; 
+    
+    // 3. Start the while loop: continues as long as the guess does NOT equal the secret number
+    while (guess != secretNumber) {
+        
+        // 4. Prompt the user for a guess and convert the input string to an integer
+        guess = parseInt(prompt("Enter your guess (1-10):"));
+        
+        // 5. Check the guess using if-else if-else structure
+        
+        // Check 1: Correct guess (use strict equality '===')
+        if (guess === secretNumber) {
+            alert("Correct! The number was " + secretNumber);
+            
+        // Check 2: Guess is too high
+        } else if (guess > secretNumber) {
+            alert("Too high! Try again.");
+            
+        // Check 3: Guess is too low
+        } else if (guess < secretNumber) {
+            alert("Too low! Try again.");
+            
+        // Check 4: Invalid input (e.g., cancelled the prompt, entered non-numeric text)
+        } else {
+            alert("Please enter a valid number.");
+        }
+    }
+}
+</script>
+
+</body>
+</html>
